@@ -5,7 +5,7 @@
   "author": "Henrique Borges <henriqueborgeshbr@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "release": "standard-version",
+    "release": "bash -c \"standard-version -t $npm_package_name@\"",
     "pre-release": "yarn release --prerelease"
   },
   "standard-version": {
