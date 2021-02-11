@@ -45,7 +45,7 @@ const getCommits = async packageName => {
   // TODO: Review
   const rePackage = new RegExp(`^[\\w\\!]+\\(${packageName}\\)`, 'i')
   const { stdout } = await execa('git', params)
-  debug && log(chalk`{red [DEBUG] getCommits stdout (without monkey emoji):}`, stdout)
+  debug && log(chalk`{white [DEBUG] getCommits stdout (without monkey emoji):}`, stdout)
   const commits = stdout
     .filter(commit => {
       debug && log(chalk`{red [DEBUG] commit:}`, commit)
