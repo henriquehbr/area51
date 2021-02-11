@@ -43,7 +43,13 @@ const commitChanges = async (cwd, packageName, version) => {
 const getCommits = async packageName => {
   log(chalk`{blue Gathering commits}`)
 
-  let params = ['tag', '--list', `${packageName}-v*`, '--sort', '-v:refname']
+  let params = [
+    'tag',
+    '--list',
+    `area51-semver-changelog-monorepo/${packageName}-v*`,
+    '--sort',
+    '-v:refname'
+  ]
   const { stdout: tags } = await execa('git', params)
   const [latestTag] = tags.split('\n')
 
