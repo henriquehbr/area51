@@ -8,11 +8,6 @@
     "release": "bash -c \"standard-version -t $npm_package_name@\"",
     "pre-release": "yarn release --prerelease"
   },
-  "standard-version": {
-    "scripts": {
-      "prebump": "node -e \"console.log('0.0.0-' + Date.now())\""
-    }
-  },
   "devDependencies": {
     "standard-version": "^9.1.0"
   }
