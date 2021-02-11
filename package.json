@@ -1,7 +1,11 @@
 {
   "name": "area51",
   "version": "0.0.0",
+  "type": "module",
   "repository": "https://github.com/henriquehbr/area51",
   "author": "Henrique Borges <henriqueborgeshbr@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "release": "node --experimental-specifier-resolution=node release"
+  }
 }
