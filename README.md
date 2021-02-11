@@ -1,9 +1,21 @@
-# area51
+# `area51-standard-version`
 
-> Monorepo for personal bleeding-edge experiments and mad science
+> Changelog generation and git-based automated semantic versioning
 
-> **Disclaimer:** All projects contained on this repo are practical implementations of hypothesis that should be considered as experimental and by no means be safe or stable for a production scenario, their API might change at any time without any prior notice
+This subject is a PoC of a cleaner and more organized changelog generation system (in constrast to [auto-changelog](https://github.com/cookpete/auto-changelog)), which makes use of conventional commit messages to determine the next version number
 
-### Concept
+## Usage
 
-In short, this repo is divided into branches, each one being a completely unrelated project (also referred internally as "subject") from another, where i test shower thoughts and some other random ideas, might include some fanciful stuff
+In order to release a new version, just run:
+
+```
+$ yarn|npm release
+```
+
+And a new commit (tagged with the new version) containing the generated changelog will be created
+
+For pre-releases, run:
+
+```
+$ yarn|npm pre-release alpha|beta
+```
