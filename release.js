@@ -185,7 +185,7 @@ const updatePackage = async (cwd, pkg, version) => {
     const commits = await getCommits(packageName)
 
     if (!commits.length) {
-      log(chalk`\n{red No commits found!} did you mean to publish ${packageName}`)
+      log(chalk`\n{red No commits found!} did you mean to publish ${packageName}?`)
       return
     }
 
