@@ -146,7 +146,7 @@ const updatePackage = async (cwd, pkg, version) => {
   try {
     const [, , packageName] = process.argv
     const cwd = join(packagesPath, packageName)
-    const pkg = require(join(cwd, 'package.json'))
+    const pkg = await import(join(cwd, 'package.json'))
 
     // FIXME: Nested template strings
     log(chalk`{cyan Publishing \`${packageName}\`} from {grey packages/${packageName}}`)
