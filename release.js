@@ -22,8 +22,14 @@ const parserOptions = {
   noteKeywords: ['BREAKING CHANGE', 'Breaking change']
 }
 const reBreaking = new RegExp(`(${parserOptions.noteKeywords.join(')|(')})`)
+const dryRun = process.argv.includes('--dry')
 
 const commitChanges = async (cwd, packageName, version) => {
+  if (dryRun) {
+    log(chalk`{yellow Skipping Git commit}`)
+    return
+  }
+
   log(chalk`{blue Committing} CHANGELOG.md, package.json`)
   let params = ['add', cwd]
   await execa('git', params)
@@ -85,12 +91,22 @@ const getNewVersion = (version, commits) => {
 }
 
 const push = async () => {
+  if (dryRun) {
+    log(chalk`{yellow Skipping Git Push}`)
+    return
+  }
+
   log(chalk`{blue Pushing release and tags}`)
   await execa('git', ['push'])
   await execa('git', ['push', '--tags'])
 }
 
 const tag = async (cwd, packageName, version) => {
+  if (dryRun) {
+    log(chalk`{yellow Skipping Git Tag}`)
+    return
+  }
+
   const tagName = `area51-semver-changelog-monorepo/${packageName}-v${version}`
   log(chalk`\n{blue Tagging} {grey ${tagName}}`)
   await execa('git', ['tag', tagName], { cwd, stdio: 'inherit' })
@@ -130,12 +146,22 @@ const updateChangelog = (commits, cwd, packageName, version) => {
   // Divide sections with a line break
   const newLog = parts.join('\n\n')
 
+  if (dryRun) {
+    log(chalk`{blue New changelog}:\n${newLog}`)
+    return
+  }
+
   log(chalk`{blue Updating} CHANGELOG.md`)
   const content = [title, newLog, oldNotes].filter(Boolean).join('\n\n')
   writeFileSync(logPath, content, 'utf-8')
 }
 
 const updatePackage = async (cwd, pkg, version) => {
+  if (dryRun) {
+    log(chalk`{yellow Skipping package.json update}`)
+    return
+  }
+
   log(chalk`{blue Updating} package.json`)
   // FIXME: Bad practice (param-reassign)
   pkg.version = version
@@ -147,6 +173,8 @@ const updatePackage = async (cwd, pkg, version) => {
     const [, , packageName] = process.argv
     const cwd = join(packagesPath, packageName)
     const pkg = await import(join(cwd, 'package.json'))
+
+    dryRun && log(chalk`{magenta DRY RUN:} No files will be modified`)
 
     // FIXME: Nested template strings
     log(chalk`{cyan Publishing \`${packageName}\`} from {grey packages/${packageName}}`)
