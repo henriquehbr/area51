@@ -10,6 +10,8 @@ In short, this repo is divided into branches, each one being a completely unrela
 
 ## Subjects
 
-| Name                                                                                      | Creation date    | Description                                                      |
-| ----------------------------------------------------------------------------------------- | ---------------- | ---------------------------------------------------------------- |
-| [`standard-version`](https://github.com/henriquehbr/area51/tree/subject/standard-version) | 11 February 2021 | Changelog generation and git-based automated semantic versioning |
+> **Notice:** dates are on the following format (DD/MM/YYYY)
+
+| Name                                                                                      | Creation date | Description                                                      |
+| ----------------------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------- |
+| [`standard-version`](https://github.com/henriquehbr/area51/tree/subject/standard-version) | 11/02/2021    | Changelog generation and git-based automated semantic versioning |
