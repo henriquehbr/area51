@@ -2,6 +2,8 @@
 
 > Changelog generation and git-based automated semantic versioning
 
+## Concept
+
 This subject is a PoC of a cleaner and more organized changelog generation system (in constrast to [auto-changelog](https://github.com/cookpete/auto-changelog)), which makes use of conventional commit messages to determine the next version number
 
 ## Usage
