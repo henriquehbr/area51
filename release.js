@@ -24,6 +24,7 @@ const parserOptions = {
 }
 const reBreaking = new RegExp(`(${parserOptions.noteKeywords.join(')|(')})`)
 const dryRun = process.argv.includes('--dry')
+const noPush = process.argv.includes('--no-push')
 
 const commitChanges = async (cwd, packageName, version) => {
   if (dryRun) {
@@ -93,7 +94,7 @@ const getNewVersion = (version, commits) => {
 }
 
 const push = async () => {
-  if (dryRun) {
+  if (dryRun || noPush) {
     log(chalk`{yellow Skipping Git Push}`)
     return
   }
