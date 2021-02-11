@@ -6,4 +6,4 @@
 
 ### Concept
 
-In short, this repo is divided into branches, each branch in a completely unrelated project (also referred internally as "subject"), where i test shower thoughts and some other random ideas, might include some fanciful stuff
+In short, this repo is divided into branches, each one being a completely unrelated project (also referred internally as "subject") from another, where i test shower thoughts and some other random ideas, might include some fanciful stuff
