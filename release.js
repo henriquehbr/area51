@@ -48,12 +48,13 @@ const getCommits = async packageName => {
 
   log(chalk`{blue Last release tag:}`, latestTag)
 
-  params = ['--no-pager', 'log', `${latestTag}..HEAD`, '--format=%B%n-hash-%n%H']
+  params = ['--no-pager', 'log', `${latestTag}..HEAD`, '--format=%B%n-hash-%n%H🐒💨🙊']
   // TODO: Review
   const rePackage = new RegExp(`^[\\w\\!]+\\(${packageName}\\)`, 'i')
   const { stdout } = await execa('git', params)
   debug && log(chalk`{white [DEBUG] getCommits stdout (without monkey emoji):}`, stdout)
   const commits = stdout
+    .split('🐒💨🙊')
     .filter(commit => {
       debug && log(chalk`{red [DEBUG] commit:}`, commit)
       const chunk = commit.trim()
