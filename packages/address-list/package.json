@@ -1,0 +1,7 @@
+{
+  "name": "address-list",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Henrique Borges",
+  "license": "MIT"
+}
