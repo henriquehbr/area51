@@ -1,0 +1,10 @@
+{
+  "name": "learning-js",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Henrique Borges",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index"
+  }
+}
