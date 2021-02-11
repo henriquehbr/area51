@@ -56,19 +56,19 @@ const getCommits = async packageName => {
   const commits = stdout
     .split('🐒💨🙊')
     .filter(commit => {
-      debug && log(chalk`{red [DEBUG] commit:}`, commit)
+      debug && log(chalk`{white [DEBUG] commit:}`, commit)
       const chunk = commit.trim()
-      debug && log(chalk`{red [DEBUG] getCommits chunk:}`, chunk)
+      debug && log(chalk`{white [DEBUG] getCommits chunk:}`, chunk)
       return chunk && rePackage.test(chunk)
     })
     .map(commit => {
       const node = parser.sync(commit)
-      debug && log(chalk`{red [DEBUG] getCommits node:}`, node)
+      debug && log(chalk`{white [DEBUG] getCommits node:}`, node)
 
       // TODO: Review
       node.breaking = reBreaking.test(node.body || node.footer) || /!:/.test(node.header)
 
-      debug && log(chalk`{red [DEBUG] getCommits node.body:}`, node.body)
+      debug && log(chalk`{white [DEBUG] getCommits node.body:}`, node.body)
 
       return node
     })
@@ -80,12 +80,12 @@ const getNewVersion = (version, commits) => {
   log(chalk`{blue Determining new version}`)
   // TODO: Review
   const intersection = process.argv.filter(arg => ['--major', '--minor', '--patch'].includes(arg))
-  debug && log(chalk`{red [DEBUG] getNewVersion intersection:}`, intersection)
+  debug && log(chalk`{white [DEBUG] getNewVersion intersection:}`, intersection)
   if (intersection.length) return semver.inc(version, intersection[0].substring(2))
 
-  debug && log(chalk`{red [DEBUG] getNewVersion commits:}`, commits)
+  debug && log(chalk`{white [DEBUG] getNewVersion commits:}`, commits)
   const types = new Set(commits.map(({ type }) => type))
-  debug && log(chalk`{red [DEBUG] getNewVersion types:}`, types)
+  debug && log(chalk`{white [DEBUG] getNewVersion types:}`, types)
   const breaking = commits.some(commit => !!commits.breaking)
   const level = breaking ? 'major' : types.has('feat') ? 'minor' : 'patch'
 
