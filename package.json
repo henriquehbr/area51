@@ -6,6 +6,6 @@
   "author": "Henrique Borges <henriqueborgeshbr@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "release": "node --experimental-specifier-resolution=node release"
+    "release": "node --no-warnings --experimental-specifier-resolution=node release"
   }
 }
