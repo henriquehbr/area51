@@ -127,6 +127,10 @@ const updateChangelog = (commits, cwd, packageName, version) => {
   const title = `# ${packageName} changelog`
   const [date] = new Date().toISOString().split('T')
   const logPath = join(cwd, 'CHANGELOG.md')
+
+  // TODO: Improve this
+  !existsSync(logPath) && writeFileSync(logPath, '', 'utf-8')
+
   const logFile = readFileSync(logPath, 'utf-8')
   const oldNotes = logFile.startsWith(title) ? logFile.slice(title.length).trim() : logFile
   const notes = { breaking: [], fixes: [], features: [], updates: [] }
