@@ -1,3 +1,6 @@
+// Updated with 521d776
+// https://github.com/rollup/plugins/commit/521d7767c9ded5c054d72c174a2c65ebc816ccc6
+
 import { join } from 'path'
 import { readFileSync, writeFileSync } from 'fs'
 
