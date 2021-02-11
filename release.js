@@ -2,7 +2,7 @@
 // https://github.com/rollup/plugins/commit/521d7767c9ded5c054d72c174a2c65ebc816ccc6
 
 import { join } from 'path'
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync, writeFileSync, existsSync } from 'fs'
 import { pathToFileURL } from 'url'
 
 import parser from 'conventional-commits-parser'
@@ -172,9 +172,9 @@ const updatePackage = async (cwd, pkg, version) => {
   }
 
   log(chalk`{blue Updating} package.json`)
-  // FIXME: Bad practice (param-reassign)
-  pkg.version = version
-  await writePackage(cwd, pkg)
+  const pkgJson = pkg
+  pkgJson.version = version
+  await writePackage(cwd, pkgJson)
 }
 
 ;(async () => {
