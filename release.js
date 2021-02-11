@@ -3,6 +3,7 @@
 
 import { join } from 'path'
 import { readFileSync, writeFileSync } from 'fs'
+import { pathToFileURL } from 'url'
 
 import parser from 'conventional-commits-parser'
 import chalk from 'chalk'
@@ -172,7 +173,8 @@ const updatePackage = async (cwd, pkg, version) => {
   try {
     const [, , packageName] = process.argv
     const cwd = join(packagesPath, packageName)
-    const pkg = await import(join(cwd, 'package.json'))
+    // FIXME: Problematic on Windows, requires `pathToFileURL`
+    const pkg = await import(pathToFileURL(join(cwd, 'package.json')))
 
     dryRun && log(chalk`{magenta DRY RUN:} No files will be modified`)
 
