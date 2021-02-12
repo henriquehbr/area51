@@ -173,7 +173,7 @@ const updatePackage = async (cwd, pkg, version) => {
   }
 
   log(chalk`{blue Updating} package.json`)
-  const pkgJson = pkg
+  const pkgJson = Object.assign({}, pkg)
   pkgJson.version = version
   await writePackage(cwd, pkgJson)
 }
