@@ -17,7 +17,7 @@ import { push } from './push'
 
 const dirname = __dirname(import.meta.url)
 const { log } = console
-const packagesPath = join(dirname, 'packages')
+const packagesPath = join(dirname, '..', 'packages')
 const dryRun = process.argv.includes('--dry-run')
 
 try {
