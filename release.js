@@ -101,7 +101,7 @@ const getNewVersion = (version, commits) => {
 
 const push = async () => {
   if (dryRun || noPush) {
-    log(chalk`{yellow Skipping Git Push}`)
+    log(chalk`{yellow Skipping Git push}`)
     return
   }
 
@@ -112,7 +112,7 @@ const push = async () => {
 
 const tag = async (cwd, packageName, version) => {
   if (dryRun) {
-    log(chalk`{yellow Skipping Git Tag}`)
+    log(chalk`{yellow Skipping Git tag}`)
     return
   }
 
