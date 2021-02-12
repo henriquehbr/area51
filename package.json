@@ -2,10 +2,12 @@
   "name": "area51",
   "version": "0.0.0",
   "type": "module",
+  "main": "scripts/release.js",
+  "module": "scripts/release.js",
   "repository": "https://github.com/henriquehbr/area51",
   "author": "Henrique Borges <henriqueborgeshbr@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "release": "node --no-warnings --experimental-specifier-resolution=node release"
+    "release": "node --no-warnings --experimental-specifier-resolution=node scripts/release"
   }
 }
