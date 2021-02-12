@@ -48,5 +48,5 @@ export const updateChangelog = (commits, cwd, packageName, version) => {
 
   log(chalk`{blue Updating} CHANGELOG.md`)
   const content = [title, newLog, oldNotes].filter(Boolean).join('\n\n')
-  writeFileSync(logPath, content, { encoding: 'utf-8', flag: 'a+' })
+  writeFileSync(logPath, content, 'utf-8')
 }
