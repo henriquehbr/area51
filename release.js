@@ -23,7 +23,7 @@ const parserOptions = {
   noteKeywords: ['BREAKING CHANGE', 'Breaking change']
 }
 const reBreaking = new RegExp(`(${parserOptions.noteKeywords.join(')|(')})`)
-const dryRun = process.argv.includes('--dry')
+const dryRun = process.argv.includes('--dry-run')
 const noPush = process.argv.includes('--no-push')
 
 const commitChanges = async (cwd, packageName, version) => {
