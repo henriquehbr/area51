@@ -13,8 +13,6 @@ import writePackage from 'write-pkg'
 
 import { __dirname } from './dirname'
 
-const debug = true
-
 const dirname = __dirname(import.meta.url)
 
 const packagesPath = join(dirname, 'packages')
@@ -59,23 +57,17 @@ const getCommits = async packageName => {
   // TODO: Review
   const rePackage = new RegExp(`^[\\w\\!]+\\(${packageName}\\)`, 'i')
   const { stdout } = await execa('git', params)
-  debug && log(chalk`{white [DEBUG] getCommits stdout (without monkey emoji):}`, stdout)
   const commits = stdout
     .split('🐒💨🙊')
     .filter(commit => {
-      debug && log(chalk`{white [DEBUG] commit:}`, commit)
       const chunk = commit.trim()
-      debug && log(chalk`{white [DEBUG] getCommits chunk:}`, chunk)
       return chunk && rePackage.test(chunk)
     })
     .map(commit => {
       const node = parser.sync(commit)
-      debug && log(chalk`{white [DEBUG] getCommits node:}`, node)
 
       // TODO: Review
       node.breaking = reBreaking.test(node.body || node.footer) || /!:/.test(node.header)
-
-      debug && log(chalk`{white [DEBUG] getCommits node.body:}`, node.body)
 
       return node
     })
@@ -87,12 +79,9 @@ const getNewVersion = (version, commits) => {
   log(chalk`{blue Determining new version}`)
   // TODO: Review
   const intersection = process.argv.filter(arg => ['--major', '--minor', '--patch'].includes(arg))
-  debug && log(chalk`{white [DEBUG] getNewVersion intersection:}`, intersection)
   if (intersection.length) return semver.inc(version, intersection[0].substring(2))
 
-  debug && log(chalk`{white [DEBUG] getNewVersion commits:}`, commits)
   const types = new Set(commits.map(({ type }) => type))
-  debug && log(chalk`{white [DEBUG] getNewVersion types:}`, types)
   const breaking = commits.some(commit => !!commit.breaking)
   const level = breaking ? 'major' : types.has('feat') ? 'minor' : 'patch'
 
