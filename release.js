@@ -183,7 +183,7 @@ const updatePackage = async (cwd, pkg, version) => {
     const [, , packageName] = process.argv
     const cwd = join(packagesPath, packageName)
     // FIXME: Problematic on Windows, requires `pathToFileURL`
-    const pkg = await import(pathToFileURL(join(cwd, 'package.json')))
+    const { default: pkg } = await import(pathToFileURL(join(cwd, 'package.json')))
 
     dryRun && log(chalk`{magenta DRY RUN:} No files will be modified`)
 
