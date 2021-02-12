@@ -206,7 +206,7 @@ const updatePackage = async (cwd, pkg, version) => {
     // FIXME: probably `await` is not needed here
     await updateChangelog(commits, cwd, packageName, newVersion)
     await commitChanges(cwd, packageName, newVersion)
-    await tag(cwd, pluginName, newVersion)
+    await tag(cwd, packageName, newVersion)
     await push()
   } catch (e) {
     log(e)
