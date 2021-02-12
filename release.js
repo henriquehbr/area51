@@ -93,7 +93,7 @@ const getNewVersion = (version, commits) => {
   debug && log(chalk`{white [DEBUG] getNewVersion commits:}`, commits)
   const types = new Set(commits.map(({ type }) => type))
   debug && log(chalk`{white [DEBUG] getNewVersion types:}`, types)
-  const breaking = commits.some(commit => !!commits.breaking)
+  const breaking = commits.some(commit => !!commit.breaking)
   const level = breaking ? 'major' : types.has('feat') ? 'minor' : 'patch'
 
   return semver.inc(version, level)
