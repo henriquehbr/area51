@@ -39,7 +39,7 @@ const initialCommit = async (cwd, packageName) => {
     return
   }
 
-  let params = ['add', join(cwd, 'package.json')]
+  let params = ['add', cwd]
   await execa('git', params)
 
   log(chalk`{blue Committing package.json}`)
