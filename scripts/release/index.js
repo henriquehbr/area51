@@ -6,7 +6,8 @@ import { pathToFileURL } from 'url'
 
 import chalk from 'chalk'
 
-import { __dirname } from './dirname'
+import { __dirname } from '../../utils/dirname'
+import { packagesPath } from '../../utils/packages-path'
 import { getCommits } from './get-commits'
 import { getNewVersion } from './get-new-version'
 import { updatePackage } from './update-package'
@@ -15,9 +16,7 @@ import { commitChanges } from './commit-changes'
 import { tag } from './tag'
 import { push } from './push'
 
-const dirname = __dirname(import.meta.url)
 const { log } = console
-const packagesPath = join(dirname, '..', 'packages')
 const dryRun = process.argv.includes('--dry-run')
 
 try {
