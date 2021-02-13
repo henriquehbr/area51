@@ -27,7 +27,6 @@ try {
 
   dryRun && log(chalk`{magenta DRY RUN:} No files will be modified`)
 
-  // FIXME: Nested template strings
   log(chalk`{cyan Publishing \`${packageName}\`} from {grey packages/${packageName}}`)
 
   const commits = await getCommits(packageName)
