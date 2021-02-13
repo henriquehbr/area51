@@ -1,5 +1,5 @@
 import { existsSync, mkdirSync } from 'fs'
-import { join, parse } from 'path'
+import { join } from 'path'
 import { packagesPath } from '../../utils/packages-path'
 
 import chalk from 'chalk'
