@@ -63,6 +63,17 @@ const tag = async (cwd, packageName) => {
   await execa('git', ['tag', tagName], { cwd, stdio: 'inherit' })
 }
 
+export const push = async () => {
+  if (dryRun) {
+    log(chalk`{yellow Skipping Git push}`)
+    return
+  }
+
+  log(chalk`{blue Pushing release and tags}`)
+  await execa('git', ['push'])
+  await execa('git', ['push', '--tags'])
+}
+
 try {
   const [, , packageName] = process.argv
   const cwd = join(packagesPath, packageName)
@@ -78,6 +89,7 @@ try {
   createPackageJson(cwd, packageName)
   await initialCommit(cwd, packageName)
   await tag(cwd, packageName)
+  await push()
 } catch (e) {
   log(e)
 }
