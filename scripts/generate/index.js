@@ -58,7 +58,7 @@ const tag = async (cwd, packageName) => {
     return
   }
 
-  const tagName = `area51-semver-changelog-monorepo/${packageName}`
+  const tagName = `area51-semver-changelog-monorepo/${packageName}-v0.0.0`
   log(chalk`\n{blue Tagging} {grey ${tagName}}`)
   await execa('git', ['tag', tagName], { cwd, stdio: 'inherit' })
 }
