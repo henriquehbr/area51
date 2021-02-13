@@ -76,8 +76,8 @@ try {
 
   createDirectory(cwd)
   createPackageJson(cwd, packageName)
-  initialCommit(cwd, packageName)
-  tag(cwd, packageName)
+  await initialCommit(cwd, packageName)
+  await tag(cwd, packageName)
 } catch (e) {
   log(e)
 }
