@@ -8,6 +8,7 @@ import writePackage from 'write-pkg'
 
 const { log } = console
 const dryRun = process.argv.includes('--dry-run')
+const noPush = process.argv.includes('--no-push')
 
 const createDirectory = cwd => {
   if (dryRun) {
@@ -64,7 +65,7 @@ const tag = async (cwd, packageName) => {
 }
 
 export const push = async () => {
-  if (dryRun) {
+  if (dryRun || noPush) {
     log(chalk`{yellow Skipping Git push}`)
     return
   }
