@@ -1,5 +1,13 @@
 # lolcats changelog
 
+## v0.3.1
+
+_2021-02-14_
+
+### Bugfixes
+
+- fix: remove derp doggo (b18f713)
+
 ## v0.3.0
 
 _2021-02-14_
