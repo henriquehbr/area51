@@ -1,5 +1,13 @@
 # lolcats changelog
 
+## v0.3.0
+
+_2021-02-14_
+
+### Features
+
+- feat: add derp doggo (3bd5a09)
+
 ## v0.2.0
 
 _2021-02-14_
