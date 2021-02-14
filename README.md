@@ -12,6 +12,7 @@ In short, this repo is divided into branches, each one being a completely unrela
 
 > **Notice:** dates are on the following format (DD/MM/YYYY)
 
-| Name                                                                                      | Description                                                      |
-| ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| [`standard-version`](https://github.com/henriquehbr/area51/tree/subject/standard-version) | Changelog generation and git-based automated semantic versioning |
+| Name                                                                                                        | Description                                                                      |
+| ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [`standard-version`](https://github.com/henriquehbr/area51/tree/subject/standard-version)                   | Changelog generation and git-based automated semantic versioning                 |
+| [`semver-changelog-monorepo`](https://github.com/henriquehbr/area51/tree/subject/semver-changelog-monorepo) | Monorepo with built-in changelog generation and semantic versioning capabilities |
