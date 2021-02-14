@@ -1,5 +1,14 @@
 # lolcats changelog
 
+## v0.2.0
+
+_2021-02-14_
+
+### Features
+
+- feat: add lolcat geology (84b2c36)
+- feat: add lolcat dune (3e9d57b)
+
 ## v0.1.0
 
 _2021-02-14_
