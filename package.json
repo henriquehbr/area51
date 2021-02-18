@@ -8,5 +8,12 @@
   "scripts": {
     "generate": "node --no-warnings --experimental-specifier-resolution=node scripts/generate",
     "release": "node --no-warnings --experimental-specifier-resolution=node scripts/release"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "conventional-commits-parser": "^3.2.1",
+    "execa": "^5.0.0",
+    "semver": "^7.3.4",
+    "write-pkg": "^4.0.0"
   }
 }
