@@ -4,6 +4,7 @@
   "repository": "https://github.com/henriquehbr/area51",
   "author": "Henrique Borges <henriqueborgeshbr@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "generate": "node --no-warnings --experimental-specifier-resolution=node scripts/generate",
     "release": "node --no-warnings --experimental-specifier-resolution=node scripts/release"
