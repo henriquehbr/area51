@@ -1,8 +1,9 @@
 import chalk from 'chalk'
 import writePackage from 'write-pkg'
 
+import { dryRun } from './cli'
+
 const { log } = console
-const dryRun = process.argv.includes('--dry-run')
 
 export const updatePackage = async (cwd, pkg, version) => {
   if (dryRun) {

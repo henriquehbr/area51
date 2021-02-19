@@ -1,9 +1,9 @@
 import chalk from 'chalk'
 import execa from 'execa'
 
+import { dryRun, noTag } from './cli'
+
 const { log } = console
-const dryRun = process.argv.includes('--dry-run')
-const noTag = process.argv.includes('--no-tag')
 
 export const tag = async (cwd, packageName, version) => {
   if (dryRun || noTag) {

@@ -3,9 +3,9 @@ import { join } from 'path'
 import chalk from 'chalk'
 import writePackage from 'write-pkg'
 
-const { log } = console
+import { dryRun } from './cli'
 
-const dryRun = process.argv.includes('--dry-run')
+const { log } = console
 
 export const createPackageJson = (cwd, packageName) => {
   if (dryRun) {

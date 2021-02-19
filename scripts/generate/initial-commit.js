@@ -1,9 +1,9 @@
 import chalk from 'chalk'
 import execa from 'execa'
 
-const { log } = console
+import { dryRun } from './cli'
 
-const dryRun = process.argv.includes('--dry-run')
+const { log } = console
 
 export const initialCommit = async (cwd, packageName) => {
   if (dryRun) {

@@ -1,10 +1,9 @@
 import chalk from 'chalk'
 import execa from 'execa'
 
-const { log } = console
+import { dryRun, noPush } from './cli'
 
-const dryRun = process.argv.includes('--dry-run')
-const noPush = process.argv.includes('--no-push')
+const { log } = console
 
 export const push = async () => {
   if (dryRun || noPush) {

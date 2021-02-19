@@ -2,9 +2,9 @@ import { mkdirSync } from 'fs'
 
 import chalk from 'chalk'
 
-const { log } = console
+import { dryRun } from './cli'
 
-const dryRun = process.argv.includes('--dry-run')
+const { log } = console
 
 export const createDirectory = cwd => {
   if (dryRun) {

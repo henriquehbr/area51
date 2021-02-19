@@ -3,8 +3,9 @@ import { readFileSync, writeFileSync, existsSync } from 'fs'
 
 import chalk from 'chalk'
 
+import { dryRun } from './cli'
+
 const { log } = console
-const dryRun = process.argv.includes('--dry-run')
 
 export const updateChangelog = (commits, cwd, packageName, version) => {
   log(chalk`{blue Gathering changes...}`)

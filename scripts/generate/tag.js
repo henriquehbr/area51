@@ -1,12 +1,12 @@
 import chalk from 'chalk'
 import execa from 'execa'
 
+import { dryRun, noTag } from './cli'
+
 const { log } = console
 
-const dryRun = process.argv.includes('--dry-run')
-
 export const tag = async (cwd, packageName) => {
-  if (dryRun) {
+  if (dryRun || noTag) {
     log(chalk`{yellow Skipping Git tag}`)
     return
   }
