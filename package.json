@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "release": "bash -c \"standard-version -t $npm_package_name@\"",
-    "pre-release": "yarn release --prerelease"
+    "pre-release": "yarn release --prerelease",
+    "publish": "node publish"
   },
   "standard-version": {
     "scripts": {
