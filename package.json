@@ -8,7 +8,7 @@
   "scripts": {
     "release": "bash -c \"standard-version -t $npm_package_name@\"",
     "pre-release": "yarn release --prerelease",
-    "publish-npm": "node publish"
+    "publish-npm": "node --experimental-json-modules publish"
   },
   "standard-version": {
     "scripts": {
