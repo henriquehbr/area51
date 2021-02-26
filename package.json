@@ -14,6 +14,8 @@
     }
   },
   "devDependencies": {
+    "libnpmpublish": "^4.0.0",
+    "pacote": "^11.2.7",
     "standard-version": "^9.1.0"
   }
 }
