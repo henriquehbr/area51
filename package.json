@@ -4,6 +4,7 @@
   "repository": "https://github.com/henriquehbr/area51",
   "author": "Henrique Borges <henriqueborgeshbr@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "release": "bash -c \"standard-version -t $npm_package_name@\"",
     "pre-release": "yarn release --prerelease",
